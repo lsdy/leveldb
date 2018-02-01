@@ -1490,12 +1490,18 @@ DB::~DB() { }
 Status DB::Open(const Options& options, const std::string& dbname,
                 DB** dbptr) {
   *dbptr = NULL;
-
+  //数据库文件由这个负责
   DBImpl* impl = new DBImpl(options, dbname);
   impl->mutex_.Lock();
+
+  //控制版本？？
   VersionEdit edit;
   // Recover handles create_if_missing, error_if_exists
   bool save_manifest = false;
+  /*!
+   * 应该是恢复所以已经存为文件的数据的设备描述符
+   * 包括mem_应该是log
+   */
   Status s = impl->Recover(&edit, &save_manifest);
   if (s.ok() && impl->mem_ == NULL) {
     // Create new log and a corresponding memtable.

@@ -23,7 +23,7 @@ class TableCache {
   TableCache(const std::string& dbname, const Options* options, int entries);
   ~TableCache();
 
-  // Return an iterator for the specified file number (the corresponding
+  // Return an iterator for the specified file number (the corresponding(对应的)
   // file length must be exactly "file_size" bytes).  If "tableptr" is
   // non-NULL, also sets "*tableptr" to point to the Table object
   // underlying the returned iterator, or NULL if no Table object underlies
