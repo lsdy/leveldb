@@ -11,7 +11,9 @@
 namespace leveldb {
 
 class MemTable;
-
+/*
+ * 不想对外暴露这些函数接口，最大的用处就是调用头文件接口时清洁了好多
+ */
 // WriteBatchInternal provides static methods for manipulating a
 // WriteBatch that we don't want in the public WriteBatch interface.
 class WriteBatchInternal {

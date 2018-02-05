@@ -28,7 +28,9 @@
 namespace leveldb {
 
 class Slice;
-
+/*
+ * put get都是由WriteBatch实现
+ */
 class LEVELDB_EXPORT WriteBatch {
  public:
   WriteBatch();
@@ -49,6 +51,7 @@ class LEVELDB_EXPORT WriteBatch {
   // releases. It is intended for LevelDB usage metrics.
   size_t ApproximateSize();
 
+  
   // Support for iterating over the contents of a batch.
   class Handler {
    public:

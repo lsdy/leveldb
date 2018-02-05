@@ -42,7 +42,9 @@ void WriteBatch::Clear() {
 size_t WriteBatch::ApproximateSize() {
   return rep_.size();
 }
-
+/*
+ * 这个函数套了好几层了
+ */
 Status WriteBatch::Iterate(Handler* handler) const {
   Slice input(rep_);
   if (input.size() < kHeader) {
